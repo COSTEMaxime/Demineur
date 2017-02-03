@@ -33,7 +33,7 @@ void init (SDL_Surface** screen, TTF_Font** police)
 
     if (*police == NULL)
     {
-        fprintf(stderr, "Essayer lors du chargement de la police : %s", TTF_GetError());
+        fprintf(stderr, "Erreur lors du chargement de la police : %s", TTF_GetError());
         exit(1);
 
     }
@@ -160,15 +160,15 @@ void fin (SDL_Surface** screen, TTF_Font** police, int** grille, int result)
 
     SDL_Color couleurNoire = {0,0,0};
 
-    char texte[10] = "";
+    char texte[30] = "";
 
     //affichage du message de fin + des mines si perdu
     if (result)
     {
-        sprintf(texte, "Gagné !");
+        sprintf(texte, "Gagné !, cliquez pour rejouer");
 
     } else  {
-       sprintf(texte, "Perdu !");
+       sprintf(texte, "Perdu !, cliquez pour rejouer");
        afficherMines(screen, grille);
     }
 

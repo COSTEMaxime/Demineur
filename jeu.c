@@ -90,6 +90,7 @@ void jeu (SDL_Surface** screen, TTF_Font** police)
     //attente d'un clic dans la fenêtre
     while (clic)
     {
+        //si clic on sort de la boucle
         SDL_WaitEvent(&event);
         if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_QUIT)
             clic = 0;

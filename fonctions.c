@@ -123,9 +123,11 @@ void discover (int** grille, int** mask, int xPos, int yPos, int *continuer)
 
     int **checkCases = genererMask();
     discover_(grille, mask, checkCases, xPos, yPos);
+    free(checkCases);
 
 }
 
+//fonction qui découvre les cases adjacentes a une case comportant un ou plusieurs drapeuax autour d'elle
 void testBombe (int** mask, int nbBombes, int xPos, int yPos)
 {
     int count = 0;
@@ -147,6 +149,7 @@ void testBombe (int** mask, int nbBombes, int xPos, int yPos)
             for (int y = -1; y < 2; y++)
             {
                 if (test(xPos + x, yPos + y))
+                    //test si ce n'est pas un drapeau
                     if (mask[xPos + x][yPos + y] != 2)
                         mask[xPos + x][yPos + y] = 1;
             }
